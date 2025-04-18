@@ -11,4 +11,13 @@ nohup /usr/local/bin/BA3-SNPS -F FIVEpop_subset.txt -l 4443 -v &
 #-a allele frequencies (third #)
 #-f inbreeding coefficients (fourth #)
 #if rates aren't optimal need to rerun the above line making changes to paramter values as necessary (see manual), may need to do this multiple times
-nohup /usr/local/bin/BA3-SNPS -F inputfile.txt -l 4443 -v -m X.XX -a X.XX -f X.XX &
+#nohup /usr/local/bin/BA3-SNPS -F inputfile.txt -l 4443 -v -m X.XX -a X.XX -f X.XX &
+
+#when you have your 'final' m, a, and f values need to use them to start a run with the following parameters:
+#-u prints output file
+#-t creates trace file to monitor convergence
+#-s need to set random number for starting seed
+#-i need to set # of iterations
+#-b need to set burnin
+#-n specifies sampling interval
+nohup /usr/local/bin/BA3-SNPS -F inputfile.txt -l 4443 -v -u -a 0.55 -f 0.03 -t -s 999 -i 150000000 -b 30000000 -n 10000 -o run1_150m_out.txt &
