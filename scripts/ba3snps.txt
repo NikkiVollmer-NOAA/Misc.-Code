@@ -1,14 +1,14 @@
 ##Code for running BA3-SNPs on SEFSC internal server (WANDA)
 
-##First run text run using default parameters
+##First run test run using default parameters
 #-F is needed to specify immanc file format for input
-# -l is specifies the number of loci
+#-l is specifies the number of loci
+#-v verbose output
 nohup /usr/local/bin/BA3-SNPS -F FIVEpop_subset.txt -l 4443 -v &
-##started 1410 on 4/17 run 1405505
 
-#once above is complete, check acceptance rates in nohup.out, want to be between 20-60% by end of run
+#once above is complete, check acceptance rates in nohup.out, want the 3 below to be between 20-60% by end of run
 #-m migration rates (first #)
 #-a allele frequencies (third #)
-#-f inbreeding coefficients (four #)
-#if rates aren't optimal need to rerun the above line making changes to paramter values as necessary (see manual)
+#-f inbreeding coefficients (fourth #)
+#if rates aren't optimal need to rerun the above line making changes to paramter values as necessary (see manual), may need to do this multiple times
 nohup /usr/local/bin/BA3-SNPS -F inputfile.txt -l 4443 -v -m X.XX -a X.XX -f X.XX &
